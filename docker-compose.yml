@@ -1,15 +1,20 @@
+# Версия Docker-Compose
 version: '3.7'
 
 services:
-
+  # Название контейнера
   db:
+    # Образ postgres:version
     image: postgres:12.0-alpine
     restart: always
+    # Системные Переменные
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=admin123
       - POSTGRES_DB=testDB
+    # Binding Ports
     ports:
       - '5432:5432'
+    # Binding Directories (PC:Container_BD)
     volumes:
     - /C/ProgramData/DockerDesktop/vm-data:/var/lib/postgersql
